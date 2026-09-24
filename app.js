@@ -1,4 +1,4 @@
-import { TRACKS, QUESTION_BANK, MAJOR_DETAILS, STUDY_TIPS } from './data.js';
+import { TRACKS, QUESTION_BANK, MAJOR_DETAILS, STUDY_TIPS } from './data.js?v=20260924-2';
 
 const QUESTION_COUNT = 12;
 
@@ -181,6 +181,7 @@ class QuizUI {
         this.mobileInput = document.getElementById('mobileNumber');
         this.ageInput = document.getElementById('age');
         this.academicBranchInput = document.getElementById('academicBranch');
+        this.studentUnionInputs = document.querySelectorAll('input[name="studentUnion"]');
         this.startQuizFormBtn = document.getElementById('startQuizFormBtn');
         this.confirmChoiceBtn = document.getElementById('confirmChoiceBtn');
         this.choicePhoneInput = document.getElementById('choicePhone');
@@ -276,6 +277,7 @@ class QuizUI {
                 const phone = this.mobileInput.value.trim();
                 const age = this.ageInput.value.trim();
                 const academicBranch = this.academicBranchInput.value.trim();
+                const unionChoice = [...this.studentUnionInputs].find(input => input.checked)?.value || '';
 
                 // 1. التحقق من صحة المدخلات
                 if (name.length < 3) {
@@ -290,10 +292,13 @@ class QuizUI {
                     this.showToast('يرجى إدخال عمر صحيح', true);
                     return;
                 }
-                if (academicBranch.length < 2) {
-                    this.showToast('يرجى إدخال الفرع الأكاديمي الذي تطمح إلى الالتحاق به', true);
+                if (!unionChoice) {
+                    this.showToast('يرجى اختيار نعم أو لا بخصوص الانضمام إلى اتحاد طلبة سورية', true);
                     return;
                 }
+                // الفرع الأكاديمي اختياري:
+                // إذا أدخله الطالب نرسله إلى Google Form،
+                // وإذا تركه فارغاً نكمل الاختبار بشكل طبيعي.
 
                 // 2. تجهيز البيانات وإرفاقها بمعرفات Google Form
                 const payload = new URLSearchParams();
@@ -301,7 +306,11 @@ class QuizUI {
                 payload.append('entry.1107585805', name);
                 payload.append('entry.124913972', phone);
                 payload.append('entry.1983079251', age);
-                payload.append('entry.234839250', academicBranch);
+                payload.append('entry.1746227930', unionChoice);
+
+                if (academicBranch) {
+                    payload.append('entry.234839250', academicBranch);
+                }
 
                 const formUrl =
                     'https://docs.google.com/forms/d/e/1FAIpQLSdNUYMpALSi4m2sdl99a1IiTPPerAvXGutEcJNnaWrAsYWHKw/formResponse';
@@ -387,34 +396,26 @@ class QuizUI {
     }
 
     restartQuiz() {
-        // مسح الاختبار والبيانات المحفوظة حتى يبدأ المستخدم من الصفر
+        // امسح كل حالة الاختبار أولاً حتى لا يعاد فتح النتيجة أو الأسئلة القديمة.
         QuizStorage.clear();
 
-        // إعادة ضبط بيانات الاختبار الحالية
         this.engine.activeQuestions = [];
         this.engine.answers = Array(QUESTION_COUNT).fill("");
         this.engine.currentIndex = 0;
         this.engine.skipUsed = 0;
-        this.engine.userData = { name: "", phone: "", age: "", academicBranch: "" };
+        this.engine.userData = {
+            name: "",
+            phone: "",
+            age: "",
+            academicBranch: ""
+        };
         this.engine.completed = false;
         this.engine.result = null;
 
-        // تفريغ الاسم والرقم
-        if (this.fullNameInput) this.fullNameInput.value = "";
-        if (this.mobileInput) this.mobileInput.value = "";
-        if (this.ageInput) this.ageInput.value = "";
-        if (this.academicBranchInput) this.academicBranchInput.value = "";
-
-        // إخفاء النتيجة والاختبار وإظهار شاشة الاسم والرقم
-        this.resultBox.classList.remove('active');
-        this.quizContent.classList.add('hidden');
-        this.navActions.classList.add('hidden');
-        this.titleBar.classList.add('hidden');
-        this.introScreen.classList.add('hidden');
-        if (this.choiceScreen) this.choiceScreen.classList.add('hidden');
-        this.userInfoScreen.classList.remove('hidden');
-
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        // إعادة تحميل الصفحة هي الضمان أن التطبيق يرجع فعلياً إلى الـ Home
+        // وليس فقط يبدّل الـ classes داخل الـ DOM.
+        const homeUrl = window.location.pathname + window.location.search;
+        window.location.replace(homeUrl);
     }
 
     transitionToQuiz() {
@@ -536,6 +537,7 @@ class QuizUI {
         this.renderMajors(bestTrack);
 
         this.bar.style.width = "100%";
+        this.quizContent.classList.remove("hidden");
         this.resultBox.classList.add("active");
         this.questionsEl.classList.add("hidden");
         this.navActions.classList.add("hidden");
@@ -566,14 +568,19 @@ class QuizUI {
     }
 
     renderMajors(track) {
-        // دمج التخصصات العلمية والأدبية واختيار 4 عشوائياً
-        const allMajors = [...(track.majors.scientific || []), ...(track.majors.literary || [])];
-        // إزالة التكرار بناءً على اسم التخصص
-        const uniqueMajors = [...new Map(allMajors.map(item => [item.name, item])).values()];
+        const allMajors = [
+            ...(track.majors.scientific || []),
+            ...(track.majors.literary || [])
+        ];
+
+        const uniqueMajors = [
+            ...new Map(allMajors.map(item => [item.name, item])).values()
+        ];
+
         const suggested = this.engine.shuffle(uniqueMajors).slice(0, 4);
 
-        this.majorsList.innerHTML = suggested.map((m, i) => `
-            <button class="major" type="button" data-major-name="${m.name}" data-major-kind="${m.kind}">
+        this.majorsList.innerHTML = suggested.map((m) => `
+            <button class="major" type="button">
                 <div>
                     <div class="major-name">${m.name}</div>
                     <div class="major-meta">${m.kind} · اضغط للتفاصيل</div>
@@ -581,25 +588,61 @@ class QuizUI {
             </button>
         `).join("");
 
-        // تفعيل نافذة تفاصيل التخصص (Modal)
-        this.majorsList.querySelectorAll('.major').forEach(btn => {
-            btn.addEventListener('click', (e) => this.openMajorModal(e.currentTarget.dataset));
+        // نمرر كائن التخصص نفسه بدل data-* حتى لا تتأثر المطابقة بالـ Emoji.
+        this.majorsList.querySelectorAll('.major').forEach((btn, index) => {
+            btn.addEventListener('click', () => {
+                this.openMajorModal(suggested[index]);
+            });
         });
     }
 
-    openMajorModal(dataset) {
+    getMajorDetails(majorName) {
+        if (!majorName) {
+            return ['تفاصيل غير متوفرة حالياً.', 'غير محدد', []];
+        }
+
+        // أسماء التخصصات المعروضة تحتوي Emoji، بينما مفاتيح MAJOR_DETAILS
+        // مكتوبة بدون Emoji. نستخدم مفتاحاً موحداً للطرفين حتى لا يعتمد
+        // التطابق على شكل الـ Emoji أو المسافات أو علامات الترقيم.
+        const normalizeMajorName = (value) => String(value)
+            .normalize('NFKC')
+            .replace(/[\u200D\uFE0F]/gu, '')
+            .replace(/[^\p{L}\p{N}]+/gu, ' ')
+            .replace(/\s+/g, ' ')
+            .trim()
+            .toLowerCase();
+
+        if (MAJOR_DETAILS[majorName]) {
+            return MAJOR_DETAILS[majorName];
+        }
+
+        const normalizedName = normalizeMajorName(majorName);
+
+        const match = Object.entries(MAJOR_DETAILS).find(
+            ([key]) => normalizeMajorName(key) === normalizedName
+        );
+
+        return match
+            ? match[1]
+            : ['تفاصيل غير متوفرة حالياً.', 'غير محدد', []];
+    }
+
+    openMajorModal(major) {
         const modal = document.getElementById('majorModal');
-        const details = MAJOR_DETAILS[dataset.majorName] || ['تفاصيل غير متوفرة حالياً.', 'غير محدد', []];
-        
-        document.getElementById('majorModalTitle').textContent = dataset.majorName;
-        document.getElementById('majorModalSub').textContent = dataset.majorKind;
+        if (!modal || !major) return;
+
+        const details = this.getMajorDetails(major.name);
+
+        document.getElementById('majorModalTitle').textContent = major.name;
+        document.getElementById('majorModalSub').textContent = major.kind;
         document.getElementById('majorModalSummary').textContent = details[0];
         document.getElementById('majorModalDuration').textContent = details[1];
-        document.getElementById('majorModalJobs').innerHTML = details[2].map(j => `<span class="major-job">${j}</span>`).join('');
-        
+        document.getElementById('majorModalJobs').innerHTML =
+            details[2].map(j => `<span class="major-job">${j}</span>`).join('');
+
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
-        
+
         document.getElementById('majorModalClose').onclick = () => {
             modal.classList.remove('active');
             document.body.style.overflow = '';

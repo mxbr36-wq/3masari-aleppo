@@ -154,11 +154,30 @@ html.dark .choice-btn:hover{
           </div>
 
           <div style="margin-bottom: 24px; text-align: right;">
-            <label for="academicBranch" style="display: block; margin-bottom: 8px; font-weight: bold; font-size: 14px;">الفرع الأكاديمي الذي يناسب مجموعك وتطمح إلى الالتحاق به <span style="color: var(--danger);">*</span></label>
-            <input type="text" id="academicBranch" placeholder="مثال: هندسة المعلوماتية" style="width: 100%; padding: 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); color: var(--text); font-family: inherit; font-size: 15px;" required>
+            <label for="academicBranch" style="display: block; margin-bottom: 8px; font-weight: bold; font-size: 14px;">الفرع الأكاديمي الذي يناسب مجموعك وتطمح إلى الالتحاق به</label>
+            <input type="text" id="academicBranch" placeholder="مثال: هندسة المعلوماتية (اختياري)" style="width: 100%; padding: 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); color: var(--text); font-family: inherit; font-size: 15px;">
           </div>
 
+          <fieldset style="margin-bottom: 24px; padding: 0; border: 0; text-align: right;">
+            <legend style="display: block; margin-bottom: 8px; font-weight: bold; font-size: 14px;">
+              هل ترغب في الانضمام إلى اتحاد طلبة سورية؟ <span style="color: var(--danger);">*</span>
+            </legend>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+              <label style="flex: 1 1 140px; padding: 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); cursor: pointer; text-align: center;">
+                <input type="radio" name="studentUnion" value="نعم" style="margin-left: 8px;">
+                نعم
+              </label>
+              <label style="flex: 1 1 140px; padding: 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); cursor: pointer; text-align: center;">
+                <input type="radio" name="studentUnion" value="لا" style="margin-left: 8px;">
+                لا
+              </label>
+            </div>
+          </fieldset>
+
           <button class="btn primary" id="startQuizFormBtn" type="button" style="width: 100%; max-width: 360px;">متابعة للاختبار</button>
+          <p class="form-data-note" style="margin: 10px auto 0; max-width: 360px; color: var(--muted); font-size: 12px; line-height: 1.7; text-align: center;">
+            تُجمع هذه البيانات لأغراض إحصائية بحتة ولدراسة توجهات الطلاب.
+          </p>
         </div>
 
         <div class="intro-screen hidden" id="choiceScreen" style="padding-top: 10px;">
@@ -176,6 +195,9 @@ html.dark .choice-btn:hover{
           </div>
 
           <button class="btn primary" id="submitChoiceBtn" type="button" style="width: 100%; max-width: 360px;">تأكيد الاختيار</button>
+          <p class="form-data-note" style="margin: 10px auto 0; max-width: 360px; color: var(--muted); font-size: 12px; line-height: 1.7; text-align: center;">
+            تُجمع هذه البيانات لأغراض إحصائية بحتة ولدراسة توجهات الطلاب.
+          </p>
         </div>
 
         <div id="quizContent" class="hidden">
