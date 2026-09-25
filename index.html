@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#202080" />
+  <meta name="color-scheme" content="light dark" />
+  <title>مساري | اكتشف اهتماماتك، واختر مستقبلك</title>
+  <meta name="description" content="مساري: اختبار تفاعلي استرشادي يساعدك على اكتشاف اهتماماتك والتعرّف على مجالات وتخصصات مناسبة لك." />
+  <meta property="og:title" content="مساري | اكتشف اهتماماتك، واختر مستقبلك" />
+  <meta property="og:description" content="اختبار تفاعلي استرشادي يساعدك على اكتشاف اهتماماتك والتعرّف على مجالات وتخصصات مناسبة." />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="style.css" />
+
+<style>
+.intro-actions{
+  display:flex;
+  justify-content:center;
+  align-items:stretch;
+  gap:12px;
+  flex-wrap:wrap;
+  width:100%;
+}
+.intro-actions .btn{
+  flex:1 1 220px;
+  max-width:360px;
+}
+.choice-btn{
+  border:1px solid var(--primary);
+  color:var(--primary);
+  background:transparent;
+}
+html.dark .choice-btn{
+  color:#fff;
+  border-color:#7777E8;
+}
+.choice-btn:hover{
+  background:rgba(32,32,128,.06);
+}
+html.dark .choice-btn:hover{
+  background:rgba(119,119,232,.12);
+}
+</style>
+
+</head>
+<body>
+  <div class="page">
+    <nav class="nav" aria-label="التنقل الرئيسي">
+      <div class="nav-left">
+        <a class="nav-contact nav-contact-plain" href="#footer" aria-label="تواصل معنا">تواصل معنا</a>
+      </div>
+      <div class="nav-center">
+        <div class="nav-group">
+          <a class="nav-link active" href="#top">الرئيسية</a>
+          <a class="nav-link" href="#about">عن مساري</a>
+        </div>
+      </div>
+      <div class="nav-right">
+        <button type="button" class="theme-btn" id="themeBtn" aria-label="تبديل الوضع الليلي" title="الوضع الليلي">🌙</button>
+        <span class="nav-divider" aria-hidden="true"></span>
+        <img class="nav-union-logo" src="assets/union-logo-wide.png" alt="شعار اتحاد طلبة سوريا">
+        <span class="nav-divider" aria-hidden="true"></span>
+        <a class="brand" href="#top" aria-label="مساري - الصفحة الرئيسية">
+          <img class="brand-logo" src="assets/masari-logo.png" alt="شعار مساري">
+        </a>
+      </div>
+    </nav>
+
+    <div class="wrap">
+      <section class="hero" id="top">
+        <div class="decor-cap" aria-hidden="true">
+          <svg viewBox="0 0 220 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 52L112 18L203 31L107 66L18 52Z" stroke="currentColor" stroke-width="7" stroke-linejoin="round"/>
+            <path d="M107 66L96 120C91 137 67 142 56 127L35 98" stroke="currentColor" stroke-width="7"/>
+            <path d="M35 98L25 119M35 98L48 119" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+            <circle cx="35" cy="98" r="6" fill="currentColor"/>
+          </svg>
+        </div>
+        <div class="decor-citadel" aria-hidden="true">
+          <svg viewBox="0 0 240 190" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 170V102l28-20 19 11 22-32 26 14 22-29 28 19 26-15 28 21v99H16Z" opacity=".9"/>
+            <path d="M42 102h20v68H42zm35 0h19v68H77zm34-7h22v75h-22zm39 15h18v60h-18z" fill="#fbfcfa" opacity=".55"/>
+            <path d="M23 102l21-15 19 10 22-31 26 13 22-28 29 18 25-13 27 20" stroke="#fbfcfa" stroke-width="5" opacity=".6"/>
+          </svg>
+        </div>
+        <div class="hero-brand" aria-label="مساري">
+          <h1>مساري</h1>
+          <span class="hero-brand-divider" aria-hidden="true"></span>
+          <picture class="hero-academy-logo">
+            <source media="(prefers-color-scheme: dark)" srcset="assets/acad_wh.png">
+            <img class="academy-logo academy-logo-light" src="assets/acad_da.png" alt="الشعار الأكاديمي">
+          </picture>
+        </div>
+        <h2>اكتشف اهتماماتك، واختر مستقبلك</h2>
+        <p>اختبار بسيط يساعدك على التعرّف على التخصصات المناسبة لك،<br>وبناء مستقبلك الجامعي بثقة.</p>
+      </section>
+
+      <div class="quiz-card">
+        <div class="intro-screen" id="introScreen">
+          <div class="intro-icon compass-sticker" aria-hidden="true">
+            <svg viewBox="0 0 120 120" role="img" aria-label="بوصلة ترمز إلى اكتشاف المسار">
+              <defs>
+                <linearGradient id="compassBg" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#7777E8"/>
+                  <stop offset="100%" stop-color="#202080"/>
+                </linearGradient>
+                <linearGradient id="compassNeedle" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#ffffff"/>
+                  <stop offset="100%" stop-color="#DDFBFF"/>
+                </linearGradient>
+              </defs>
+              <circle cx="60" cy="60" r="54" fill="url(#compassBg)"/>
+              <circle cx="60" cy="60" r="45" fill="#F8FAFF" opacity=".96"/>
+              <circle cx="60" cy="60" r="38" fill="none" stroke="#A9CFF5" stroke-width="2"/>
+              <path d="M60 18v8M60 94v8M18 60h8M94 60h8" stroke="#202080" stroke-width="3" stroke-linecap="round"/>
+              <path d="M60 29l10 31-10 31-10-31z" fill="url(#compassNeedle)"/>
+              <path d="M60 29l10 31-10-9z" fill="#7777E8"/>
+              <path d="M60 91L50 60l10 9z" fill="#202080" opacity=".9"/>
+              <circle cx="60" cy="60" r="6" fill="#202080" stroke="#fff" stroke-width="3"/>
+              <path d="M60 8l2.7 6.2 6.3 2.8-6.3 2.8L60 26l-2.7-6.2-6.3-2.8 6.3-2.8z" fill="#00D0F0"/>
+            </svg>
+          </div>
+          <h3>قبل ما نبلّش</h3>
+          <p>هذا الاختبار <b>استرشادي</b>، ويهدف إلى مساعدتك على التعرّف على اهتماماتك بطريقة مبسّطة، وتقديم أفكار عن المجالات والتخصصات الأقرب إليك.</p>
+          <div class="intro-list">
+            <div class="intro-item"><b>✓</b><span>النتيجة ليست حكماً نهائياً، ولا تُغني عن البحث والاستشارة.</span></div>
+            <div class="intro-item"><b>✓</b><span>أجب وفق اهتماماتك الحقيقية، وما تراه مناسباً لك.</span></div>
+            <div class="intro-item"><b>✓</b><span>تعتمد النتيجة على إجاباتك واهتماماتك كما تظهر في الاختبار.</span></div>
+          </div>
+
+          <div class="intro-actions">
+            <button class="btn primary start-btn" id="startBtn" type="button">ابدأ الاختبار</button>
+            <button class="btn choice-btn" id="confirmChoiceBtn" type="button">تأكيد الاختيار</button>
+          </div>
+        </div>
+
+        <div class="intro-screen hidden" id="userInfoScreen" style="padding-top: 10px;">
+          <h3 style="color: var(--primary); margin-bottom: 8px;">معلومات التسجيل</h3>
+          <p style="color: var(--muted); margin-bottom: 24px; font-size: 14px;">يرجى إدخال بياناتك للمتابعة إلى الاختبار.</p>
+
+          <div style="margin-bottom: 16px; text-align: right;">
+            <label for="fullName" style="display: block; margin-bottom: 8px; font-weight: bold; font-size: 14px;">الاسم الكامل <span style="color: var(--danger);">*</span></label>
+            <input type="text" id="fullName" placeholder="أدخل اسمك الثلاثي" style="width: 100%; padding: 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); color: var(--text); font-family: inherit; font-size: 15px;" required>
+          </div>
+
+          <div style="margin-bottom: 24px; text-align: right;">
+            <label for="mobileNumber" style="display: block; margin-bottom: 8px; font-weight: bold; font-size: 14px;">رقم الموبايل <span style="color: var(--danger);">*</span></label>
+            <input type="tel" id="mobileNumber" placeholder="مثال: 09XXXXXXXX" style="width: 100%; padding: 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); color: var(--text); font-family: inherit; font-size: 15px; text-align: left; direction: ltr;" required>
+          </div>
+
+          <div style="margin-bottom: 16px; text-align: right;">
+            <label for="age" style="display: block; margin-bottom: 8px; font-weight: bold; font-size: 14px;">العمر <span style="color: var(--danger);">*</span></label>
+            <input type="number" id="age" min="10" max="100" placeholder="أدخل عمرك" style="width: 100%; padding: 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); color: var(--text); font-family: inherit; font-size: 15px; text-align: right;" required>
+          </div>
+
+          <div style="margin-bottom: 24px; text-align: right;">
+            <label for="academicBranch" style="display: block; margin-bottom: 8px; font-weight: bold; font-size: 14px;">الفرع الأكاديمي الذي يناسب مجموعك وتطمح إلى الالتحاق به</label>
+            <input type="text" id="academicBranch" placeholder="مثال: هندسة المعلوماتية (اختياري)" style="width: 100%; padding: 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); color: var(--text); font-family: inherit; font-size: 15px;">
+          </div>
+
+          <fieldset style="margin-bottom: 24px; padding: 0; border: 0; text-align: right;">
+            <legend style="display: block; margin-bottom: 8px; font-weight: bold; font-size: 14px;">
+              هل ترغب في الانضمام إلى اتحاد طلبة سورية؟ <span style="color: var(--danger);">*</span>
+            </legend>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+              <label style="flex: 1 1 140px; padding: 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); cursor: pointer; text-align: center;">
+                <input type="radio" name="studentUnion" value="نعم" style="margin-left: 8px;">
+                نعم
+              </label>
+              <label style="flex: 1 1 140px; padding: 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); cursor: pointer; text-align: center;">
+                <input type="radio" name="studentUnion" value="لا" style="margin-left: 8px;">
+                لا
+              </label>
+            </div>
+          </fieldset>
+
+          <button class="btn primary" id="startQuizFormBtn" type="button" style="width: 100%; max-width: 360px;">متابعة للاختبار</button>
+          <p class="form-data-note" style="margin: 10px auto 0; max-width: 360px; color: var(--muted); font-size: 12px; line-height: 1.7; text-align: center;">
+            تُجمع هذه البيانات لأغراض إحصائية بحتة ولدراسة توجهات الطلاب.
+          </p>
+        </div>
+
+        <div class="intro-screen hidden" id="choiceScreen" style="padding-top: 10px;">
+          <h3 style="color: var(--primary); margin-bottom: 8px;">تأكيد الاختيار</h3>
+          <p style="color: var(--muted); margin-bottom: 24px; font-size: 14px;">يرجى إدخال بياناتك لتأكيد الفرع الأكاديمي الذي ترغب في الالتحاق به.</p>
+
+          <div style="margin-bottom: 16px; text-align: right;">
+            <label for="choicePhone" style="display: block; margin-bottom: 8px; font-weight: bold; font-size: 14px;">رقم الهاتف <span style="color: var(--danger);">*</span></label>
+            <input type="tel" id="choicePhone" placeholder="مثال: 09XXXXXXXX" style="width: 100%; padding: 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); color: var(--text); font-family: inherit; font-size: 15px; text-align: left; direction: ltr;" required>
+          </div>
+
+          <div style="margin-bottom: 24px; text-align: right;">
+            <label for="choiceBranch" style="display: block; margin-bottom: 8px; font-weight: bold; font-size: 14px;">ما الفرع الأكاديمي الذي ترغب في الالتحاق به بعد زيارتك للمعرض والتعرّف بشكل كافٍ إلى الكليات والتخصصات المتاحة <span style="color: var(--danger);">*</span></label>
+            <textarea id="choiceBranch" rows="4" placeholder="اكتب الفرع الأكاديمي الذي ترغب في الالتحاق به" style="width: 100%; padding: 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); color: var(--text); font-family: inherit; font-size: 15px; resize: vertical;" required></textarea>
+          </div>
+
+          <button class="btn primary" id="submitChoiceBtn" type="button" style="width: 100%; max-width: 360px;">تأكيد الاختيار</button>
+          <p class="form-data-note" style="margin: 10px auto 0; max-width: 360px; color: var(--muted); font-size: 12px; line-height: 1.7; text-align: center;">
+            تُجمع هذه البيانات لأغراض إحصائية بحتة ولدراسة توجهات الطلاب.
+          </p>
+        </div>
+
+        <div id="quizContent" class="hidden">
+          <div class="section-title" id="titleBar">
+            <h3>اكتشف مسارك</h3>
+            <div class="qCounter" id="qCounter">السؤال 1</div>
+          </div>
+          <div class="progress" aria-hidden="true"><div class="bar" id="bar"></div></div>
+          <div class="saved-hint" id="savedHint">تم حفظ تقدمك ✓</div>
+          <div id="questions" aria-live="polite"></div>
+
+          <div class="result" id="resultBox" tabindex="-1">
+            <div class="resultBox">
+              <div class="pill">🎉 نتيجتك جاهزة</div>
+              <h4 id="topResult">—</h4>
+              <div class="type" id="typeLabel"></div>
+              <div class="majors" id="majorsList" aria-label="التخصصات المقترحة"></div>
+              <p class="advice" id="adviceText">—</p>
+              <div class="study-tip" id="studyTipBox">
+                <div class="study-tip-title">💡 نصيحة للدراسة</div>
+                <p id="studyTipText">—</p>
+              </div>
+              <div class="kind-note" id="kindNote">
+                <b>الكلية والمعهد:</b> الكلية برنامج جامعي أطول وأكثر عمقاً نظرياً غالباً، بينما المعهد يركّز على الجانب التطبيقي وتكون مدته أقصر في كثير من الحالات. اختر حسب أسلوب تعلّمك وهدفك المهني.
+              </div>
+              <div class="edu-note" id="eduNote">
+                <div class="edu-note-title">أنواع التعليم</div>
+                <div class="edu-grid">
+                  <div class="edu-item"><b>عام</b><span>رسوم أقل، ومقاعد محدودة حسب المفاضلة.</span></div>
+                  <div class="edu-item"><b>موازي</b><span>رسوم أعلى، وفرص قبول أوسع غالباً.</span></div>
+                  <div class="edu-item"><b>مفتوح</b><span>تعليم مرن بفرص قبول أوسع، وغالباً بنظام عن بُعد أو جزئي.</span></div>
+                  <div class="edu-item"><b>افتراضي</b><span>دراسة عن بُعد بالكامل عبر المنصات الإلكترونية.</span></div>
+                  <div class="edu-item"><b>خاص</b><span>جامعات خاصة برسومها وشروط قبولها المستقلة.</span></div>
+                </div>
+              </div>
+              <div class="scores-title">مؤشرات التوافق</div>
+              <p class="scores-help">النسبة مؤشر تقريبي لمدى توافق إجاباتك مع خصائص المجال في هذا الاختبار، ولا تمثل احتمال نجاحك أو ملاءمتك الأكاديمية أو المهنية بشكل قطعي.</p>
+              <div class="scores" id="scoresList"></div>
+              <div class="confidence" id="confidenceLabel"></div>
+              <div class="result-note">
+                هذه النتيجة استرشادية لمساعدتك على اكتشاف اهتماماتك، وليست حكماً نهائياً بشأن التخصص المناسب لك. وقد تختلف ملاءمة التخصص حسب شروط القبول ونوع التعليم (عام، موازي، مفتوح، افتراضي، خاص) والخطة الدراسية في كل عام.
+              </div>
+              <div class="actions" style="margin-top:12px;">
+                <button class="btn" id="shareBtn" type="button">مشاركة صورة</button>
+                <button class="btn" id="copyTextBtn" type="button">نسخ كنص</button>
+                <button class="btn" id="restartBtn" type="button">ابدأ من جديد</button>
+              </div>
+              <div class="actions" style="margin-top:10px;">
+                <button class="btn notes-btn" id="notesBtn" type="button">📝 ملاحظات</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="actions" id="navActions">
+            <button class="btn" id="backBtn" type="button" disabled>رجوع</button>
+            <button class="btn ghost" id="skipBtn" type="button" title="تخطي هذا السؤال">تخطي</button>
+            <button class="btn primary" id="nextBtn" type="button">التالي</button>
+          </div>
+        </div>
+      </div>
+
+      <section class="about-card" id="about" aria-label="عن اختبار مساري">
+        <h3>ما هو اختبار مساري؟</h3>
+        <p>اختبار تفاعلي يساعدك على فهم اهتماماتك، ويمنحك مؤشرات أولية عن المجالات والتخصصات التي قد تكون أقرب إلى طريقة تفكيرك واهتماماتك.</p>
+      </section>
+
+      <section class="union-about" aria-label="عن الاتحاد">
+        <div>
+          <h3>عن الاتحاد</h3>
+          <p>اتحاد طلابي يُعنى بالشأن الطلابي، ويمثّل الطلبة، ويسهم في دعم الأنشطة والفعاليات العلمية والثقافية والاجتماعية، ومتابعة القضايا والاهتمامات المرتبطة بالحياة الجامعية.</p>
+        </div>
+      </section>
+    </div>
+
+    <footer class="site-footer" id="footer">
+      <div class="footer-block footer-slogan">
+        <div class="powered-by">
+          <span class="powered-text">Powered by</span>
+          <img class="powered-logo" src="assets/hyper_da.png" alt="Hyper Team">
+        </div>
+      </div>
+      <div class="footer-block footer-counter">
+        <div class="counter" aria-label="عدد الزيارات"><b id="visitCount">—</b></div>
+      </div>
+      <div class="footer-block footer-social">
+        <div class="social-links" aria-label="روابط الاتحاد على مواقع التواصل">
+          <a class="social-link" href="https://www.instagram.com/studentaleppo" target="_blank" rel="noopener noreferrer" aria-label="إنستغرام اتحاد طلبة سوريا">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.7" r="1.1" fill="currentColor"/></svg>
+          </a>
+          <a class="social-link" href="https://www.facebook.com/share/1Bwm9gAzdP/" target="_blank" rel="noopener noreferrer" aria-label="فيسبوك اتحاد طلبة سوريا">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.4 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.5 1.6-1.5h1.7V4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9V10H8v3h2.6v8h2.8Z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="ai-credit" aria-label="معلومة عن تطوير المنصة">تم تطوير هذه المنصة بمساعدة المطور محمد فرح</div>
+      <div class="copyright">© مساري</div>
+    </footer>
+  </div>
+
+  <div class="major-modal" id="majorModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="majorModalTitle">
+    <div class="major-modal-card">
+      <div class="major-modal-top">
+        <div>
+          <div class="major-modal-title" id="majorModalTitle">التخصص</div>
+          <div class="major-modal-sub" id="majorModalSub"></div>
+        </div>
+        <button class="major-close" id="majorModalClose" type="button" aria-label="إغلاق">×</button>
+      </div>
+      <div class="major-info"><h5>📚 عن الاختصاص</h5><p id="majorModalSummary"></p></div>
+      <div class="major-info"><h5>⏳ مدة الدراسة</h5><div class="major-duration" id="majorModalDuration"></div></div>
+      <div class="major-info"><h5>💼 مجالات العمل بعد التخرج</h5><div class="major-jobs" id="majorModalJobs"></div></div>
+      <div class="major-modal-note">المعلومات للتعريف بالاختصاص بشكل مبسّط، وقد تختلف الخطة الدراسية وبعض فرص العمل بحسب البرنامج والجامعة.</div>
+    </div>
+  </div>
+
+  <div class="note-modal" id="noteModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="noteModalTitle">
+    <div class="note-modal-card">
+      <div class="note-modal-top">
+        <div class="note-modal-title" id="noteModalTitle">شاركنا ملاحظتك</div>
+        <button class="note-close" id="noteModalClose" type="button" aria-label="إغلاق">×</button>
+      </div>
+      <p class="note-modal-hint">اكتب رأيك أو اقتراحك لتحسين مساري — ملاحظاتك تساعدنا نطوّر المنصة.</p>
+      <textarea id="noteText" class="note-textarea" rows="6" placeholder="اكتب ملاحظتك هنا..." maxlength="2000"></textarea>
+      <div class="note-modal-actions">
+        <button class="btn" id="noteCancelBtn" type="button">إلغاء</button>
+        <button class="btn primary" id="noteSubmitBtn" type="button">إرسال</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-wrap" id="toastWrap" aria-live="polite"></div>
+
+  <script type="module" src="data.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
