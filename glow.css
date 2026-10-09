@@ -1,0 +1,46 @@
+/* glow.css — أيقونات متوهجة، بطاقات زجاجية، أشرطة بتدريج، ترتيب الأزرار، وتخفيف الأداء (يُحمَّل بعد style.css) */
+
+/* ===== أيقونات بتدرّج وتوهّج ===== */
+.dim-bar-icon svg,.spec-ico svg,.q-icon svg,.journey-ico svg,.dir-chip-icon svg,.branch-icon svg,.mm-ico svg,.intro-stat i svg,.major-info h5 svg,.study-tip-title svg{stroke:url(#icg);stroke-width:1.8;filter:drop-shadow(0 0 4px rgba(79,140,255,.55))}
+.dim-bar-icon,.spec-ico,.journey-ico,.q-icon{background:linear-gradient(145deg,rgba(125,243,255,.16),rgba(90,80,255,.14));border:1px solid rgba(150,165,255,.35);box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 4px 14px rgba(64,88,255,.18)}
+.dim-bar-icon{width:38px;height:38px;border-radius:12px}
+.spec-ico{width:36px;height:36px;border-radius:11px;display:grid;place-items:center}
+
+/* ===== بطاقات التخصصات (زجاجية + مخطط خطي) ===== */
+.spec-card{background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.02)),var(--soft);border-color:rgba(150,165,255,.3);min-height:128px}
+.spec-pct{font-size:22px;background:linear-gradient(90deg,#7df3ff,#4f8cff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.spec-card .spark{display:block;margin-top:auto}
+.spec-card .sp{display:block;width:100%;height:30px;filter:drop-shadow(0 0 4px rgba(79,140,255,.5))}
+
+/* ===== أرقام أشرطة الأبعاد (الشكل الأصلي للشريط، لون جديد للأرقام) ===== */
+.dim-bar-value{color:#0a9fd0;font-variant-numeric:tabular-nums}
+html.dark .dim-bar-value{color:#5ee6ff}
+
+/* ===== أزرار صفحة النتيجة: ابدأ من جديد (كاملة) ثم ملاحظات | مشاركة ===== */
+.result-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.result-actions .btn{flex:none;width:100%;margin:0}
+.result-actions #restartBtn{grid-column:1/-1;min-height:58px;font-size:16px}
+.result-actions #notesBtn,.result-actions #shareBtn{min-height:50px;font-size:14px}
+@media (max-width:380px){.result-actions{grid-template-columns:1fr}}
+
+/* ===== تخفيف الأداء ===== */
+body:before{animation:none}                       /* خلفية متحركة بحجم الشاشة كاملة */
+.best-card{animation:rise .6s both}               /* كان يحرّك box-shadow بلا توقف */
+.btn.featured,html.dark .btn.featured{animation:none}
+@media (max-width:700px),(hover:none){
+  body:before{display:none}
+  .btn.primary:after,.bar:after{display:none}
+  .ai-fab-body,.ai-fab-ring{animation:none}
+  .nav{backdrop-filter:none;background:var(--paper)}
+  html.dark .nav{background:#0a0d34}
+  .major-modal,.note-modal,.skip-reason-overlay{backdrop-filter:none}
+  html.dark #navActions{backdrop-filter:none}
+}
+
+/* ===== الشريط العلوي: الشعارات وزر الوضع فقط ===== */
+.nav{grid-template-columns:auto 1fr}
+.nav-right{justify-self:end}
+
+/* ===== رسمة الهيرو: طريق متدرّج داخل التلّة ===== */
+.il-road2{fill:url(#gRoad)}
+.il-road2-dash{fill:none;stroke:#fff;stroke-opacity:.7;stroke-width:2;stroke-dasharray:4 8;stroke-linecap:round}

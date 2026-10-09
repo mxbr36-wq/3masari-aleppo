@@ -1,0 +1,548 @@
+<!doctype html>
+
+<html lang="ar" dir="rtl">
+
+<head>
+
+  <meta charset="utf-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content" />
+
+  <meta name="theme-color" content="#202080" />
+
+  <meta name="color-scheme" content="light dark" />
+
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <title>مساري | اكتشف اهتماماتك، واختر مستقبلك</title>
+
+  <meta name="description" content="مساري: اختبار تفاعلي استرشادي يساعدك على اكتشاف اهتماماتك والتعرّف على مجالات وتخصصات مناسبة لك." />
+
+  <meta property="og:title" content="مساري | اكتشف اهتماماتك، واختر مستقبلك" />
+
+  <meta property="og:description" content="اختبار تفاعلي استرشادي يساعدك على اكتشاف اهتماماتك والتعرّف على مجالات وتخصصات مناسبة." />
+
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=20261007-v12" />
+  <link rel="stylesheet" href="chatbot.css?v=20261007-v12" />
+  <link rel="stylesheet" href="glow.css?v=20261007-v12" />
+
+</head>
+
+<body>
+
+  <div class="page">
+
+    <nav class="nav" aria-label="التنقل الرئيسي">
+      <div class="nav-left">
+        <button type="button" class="theme-btn theme-toggle" id="themeBtn" aria-label="تبديل الوضع الليلي والنهاري" title="تبديل الوضع الليلي والنهاري"></button>
+      </div>
+      <div class="nav-right">
+        <img class="nav-union-logo" src="assets/union-logo-wide.png" alt="شعار اتحاد طلبة سوريا" onerror="this.style.display='none';this.nextElementSibling&&(this.nextElementSibling.style.display='none')">
+        <span class="nav-divider" aria-hidden="true"></span>
+        <a class="brand" href="#top" aria-label="مساري - الصفحة الرئيسية">
+          <span class="brand-name">مساري</span><img class="brand-logo" src="assets/masari-logo.png" alt="شعار مساري">
+        </a>
+      </div>
+    </nav>
+
+
+
+    <div class="wrap">
+
+      <section class="hero" id="top">
+        <div class="hero-copy">
+          <h2>اكتشف اهتماماتك<br><span>وتعرّف على خياراتك</span><br><strong>وابنِ مستقبلك الجامعي</strong></h2>
+        </div>
+        <div class="hero-illustration" aria-hidden="true">
+          <svg class="hero-svg" viewBox="0 0 480 330" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="gHill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="s-h1"/><stop offset="1" class="s-h2"/></linearGradient>
+              <linearGradient id="gBld" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="s-b1"/><stop offset="1" class="s-b2"/></linearGradient>
+              <linearGradient id="gRoad" x1="0" y1="1" x2="0" y2="0"><stop offset="0" class="s-r1"/><stop offset="1" class="s-r2"/></linearGradient>
+              <radialGradient id="gGlow"><stop offset="0" stop-color="#8b6cff" stop-opacity=".42"/><stop offset="1" stop-color="#8b6cff" stop-opacity="0"/></radialGradient>
+            </defs>
+            <ellipse cx="240" cy="185" rx="235" ry="150" fill="url(#gGlow)"/>
+            <path class="il-orbit" d="M28 160 Q240 14 452 160"/>
+            <path d="M8 250 Q60 204 150 214 Q240 188 330 214 Q420 204 472 250 Q456 320 240 326 Q24 320 8 250Z" fill="url(#gHill)"/>
+            <g class="il-tree"><circle cx="66" cy="240" r="14"/><circle cx="90" cy="232" r="10"/><circle cx="414" cy="240" r="14"/><circle cx="390" cy="232" r="10"/><circle cx="44" cy="266" r="9"/><circle cx="436" cy="266" r="9"/></g>
+            <rect class="il-wing" x="138" y="198" width="76" height="46" rx="3"/>
+            <rect class="il-wing" x="266" y="198" width="76" height="46" rx="3"/>
+            <rect x="204" y="164" width="72" height="80" rx="3" fill="url(#gBld)"/>
+            <path d="M194 167 L240 132 L286 167Z" fill="url(#gBld)"/>
+            <path class="il-dome" d="M221 140 A19 19 0 0 1 259 140Z"/>
+            <path class="il-pole" d="M240 104V124"/><path class="il-flag" d="M240 104h15l-4 5 4 5h-15Z"/>
+            <g class="il-win"><rect x="148" y="208" width="11" height="15" rx="2"/><rect x="166" y="208" width="11" height="15" rx="2"/><rect x="184" y="208" width="11" height="15" rx="2"/><rect x="276" y="208" width="11" height="15" rx="2"/><rect x="294" y="208" width="11" height="15" rx="2"/><rect x="312" y="208" width="11" height="15" rx="2"/><rect x="214" y="176" width="9" height="16" rx="2"/><rect x="229" y="176" width="9" height="16" rx="2"/><rect x="244" y="176" width="9" height="16" rx="2"/><rect x="259" y="176" width="9" height="16" rx="2"/><rect x="214" y="198" width="9" height="16" rx="2"/><rect x="259" y="198" width="9" height="16" rx="2"/></g>
+            <path class="il-door" d="M231 244V224a9 9 0 0 1 18 0v20Z"/>
+            <path class="il-road2" d="M233 244C233 270 205 288 190 308L290 308C275 288 247 270 247 244Z"/>
+            <path class="il-road2-dash" d="M240 248C240 272 240 290 240 306"/>
+            <g class="il-spark"><path d="M62 84l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/><path d="M420 70l2.5 6.5 6.5 2.5-6.5 2.5-2.5 6.5-2.5-6.5-6.5-2.5 6.5-2.5z"/><path d="M236 40l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/></g>
+          </svg>
+          <div class="hero-orb orb-cap"><span data-icon="graduationCap" data-icon-size="26"></span></div>
+          <div class="hero-orb orb-gear"><span data-icon="settings2" data-icon-size="26"></span></div>
+          <div class="hero-orb orb-art"><span data-icon="palette" data-icon-size="26"></span></div>
+          <div class="hero-orb orb-idea"><span data-icon="feather" data-icon-size="26"></span></div>
+        </div>
+        <p class="hero-desc">اختبار تفاعلي يساعدك على اكتشاف المجالات والتخصصات الأقرب إلى اهتماماتك وقدراتك.</p>
+      </section>
+
+
+
+      <div class="quiz-card">
+
+<!-- ============================================================
+
+     شاشة الترحيب
+
+     ============================================================ -->
+
+<div class="intro-screen" id="introScreen">
+  <div class="intro-kicker">اختبار مساري</div>
+  <div class="intro-stats">
+    <div class="intro-stat"><strong>نتيجة مخصصة</strong><span>توصيات دقيقة</span><i><span data-icon="target" data-icon-size="26"></span></i></div>
+    <div class="intro-stat"><strong>18 سؤالًا</strong><span>من بنك واسع</span><i><span data-icon="clipboardList" data-icon-size="26"></span></i></div>
+    <div class="intro-stat"><strong>5 دقائق</strong><span>مدة الاختبار</span><i><span data-icon="clock" data-icon-size="26"></span></i></div>
+  </div>
+  <button class="btn primary start-btn" id="startBtn" type="button">ابدأ رحلتك <span data-icon="arrowLeft" data-icon-size="18"></span></button>
+  <div class="intro-note">لا توجد إجابات صحيحة أو خاطئة</div>
+</div>
+
+<!-- ============================================================
+
+     شاشة التسجيل الموحّدة
+
+     ============================================================ -->
+
+<div class="intro-screen hidden" id="registrationScreen">
+<div class="flow-stepper" aria-label="مراحل التسجيل">
+  <div class="flow-step active"><b>1</b><span>أخبرنا عنك</span></div><i></i>
+  <div class="flow-step"><b>2</b><span>دراستك</span></div><i></i>
+  <div class="flow-step"><b>3</b><span>انضمامك</span></div><i></i>
+  <div class="flow-step"><b>4</b><span>ابدأ الاختبار</span></div>
+</div>
+
+  <h3 class="reg-title">قبل أن نبدأ</h3>
+
+  <p class="reg-subtitle">هذه المعلومات تساعدنا على تقديم نتيجة مخصصة لك.</p>
+
+
+
+  <!-- الاسم -->
+
+  <div class="reg-field">
+
+    <label for="regName">الاسم الكامل <span class="req">*</span></label>
+
+    <input type="text" id="regName" placeholder="أدخل اسمك الثلاثي" autocomplete="name">
+
+  </div>
+
+
+
+  <!-- الهاتف -->
+
+  <div class="reg-field">
+
+    <label for="regPhone">رقم الهاتف <span class="req">*</span></label>
+
+    <input type="tel" id="regPhone" placeholder="09XXXXXXXX" autocomplete="tel" inputmode="tel">
+
+  </div>
+
+
+
+  <!-- العمر -->
+
+  <div class="reg-field">
+
+    <label for="age">العمر <span class="req">*</span></label>
+
+    <div class="age-stepper">
+
+      <button type="button" class="stepper-btn" id="ageMinus" aria-label="تقليل العمر">−</button>
+
+      <input type="number" id="age" min="18" max="100" value="18" inputmode="numeric" aria-label="العمر">
+
+      <button type="button" class="stepper-btn" id="agePlus" aria-label="زيادة العمر">+</button>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- الفرع الدراسي -->
+
+  <div class="reg-field">
+
+    <label>الفرع الدراسي <span class="req">*</span></label>
+
+    <div class="branch-options" role="radiogroup" aria-label="الفرع الدراسي">
+
+      <button type="button" class="branch-btn" data-branch="sci" role="radio" aria-checked="false">
+
+        <span class="branch-icon" data-icon="flaskConical" data-icon-size="26"></span>
+
+        <span class="branch-label">علمي</span>
+
+      </button>
+
+      <button type="button" class="branch-btn" data-branch="lit" role="radio" aria-checked="false">
+
+        <span class="branch-icon" data-icon="bookOpen" data-icon-size="26"></span>
+
+        <span class="branch-label">أدبي</span>
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- الفرع المستهدف (اختياري) -->
+
+  <div class="reg-field">
+
+    <label for="regTargetBranch">الفرع الأكاديمي الذي تطمح إليه</label>
+
+    <input type="text" id="regTargetBranch" placeholder="مثال: هندسة المعلوماتية (اختياري)">
+
+  </div>
+
+
+
+  <!-- الانضمام للاتحاد -->
+
+  <div class="reg-field">
+
+    <label>هل ترغب في الانضمام إلى اتحاد طلبة سورية؟ <span class="req">*</span></label>
+
+    <div class="union-options" role="radiogroup" aria-label="الانضمام للاتحاد">
+
+      <button type="button" class="union-btn" data-union="نعم" role="radio" aria-checked="false">
+
+        <span class="union-icon" data-icon="check" data-icon-size="18"></span>
+
+        <span class="union-label">نعم</span>
+
+      </button>
+
+      <button type="button" class="union-btn" data-union="لا" role="radio" aria-checked="false">
+
+        <span class="union-icon" data-icon="x" data-icon-size="18"></span>
+
+        <span class="union-label">لا</span>
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- زر البدء -->
+
+  <button class="btn primary reg-start-btn" id="startQuizBtn" type="button">ابدأ الاختبار</button>
+
+
+
+  <p class="form-data-note">تُجمع هذه البيانات لأغراض إحصائية بحتة ولدراسة توجهات الطلاب.</p>
+
+</div>
+
+        <!-- ============================================================
+
+             شاشة الأسئلة والنتيجة
+
+             ============================================================ -->
+
+        <div id="quizContent" class="hidden">
+
+          <div class="section-title" id="titleBar">
+
+            <h3>اكتشف مسارك</h3>
+
+            <div class="qCounter" id="qCounter">السؤال 1</div>
+
+          </div>
+
+          <div class="progress" aria-hidden="true"><div class="bar" id="bar"></div></div>
+
+          <div class="saved-hint" id="savedHint">تم حفظ تقدمك</div>
+
+          <div id="questions" aria-live="polite"></div>
+
+
+
+          <!-- ============================================================
+
+               شاشة النتيجة
+
+               ============================================================ -->
+
+          <div class="result" id="resultBox" tabindex="-1">
+            <div class="resultBox">
+              <div class="result-head">
+                <h3 class="result-title" id="resultPill">تعرّف على مسارك</h3>
+                <p class="result-sub">بناءً على إجاباتك، هذه هي التخصصات الأكثر ملاءمة لك.</p>
+              </div>
+              <div class="confidence" id="confidenceLabel"></div>
+              <button class="best-card" id="bestCard" type="button" aria-label="تفاصيل التخصص الأقرب">
+                <span class="best-icon" id="bestIcon"></span>
+                <span class="best-text">
+                  <small>تخصصك الأقرب</small>
+                  <strong id="bestName">—</strong>
+                  <em id="bestMeta"></em>
+                </span>
+                <span class="best-ring-wrap">
+                  <span class="best-ring">
+                    <svg viewBox="0 0 100 100" aria-hidden="true">
+                      <defs><linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#12cbe8"/><stop offset="1" stop-color="#4058ff"/></linearGradient></defs>
+                      <circle class="ring-bg" cx="50" cy="50" r="42"/>
+                      <circle class="ring-fill" id="bestRing" cx="50" cy="50" r="42"/>
+                    </svg>
+                    <b id="bestPct">—</b>
+                  </span>
+                  <small>نسبة التوافق</small>
+                </span>
+              </button>
+              <div class="direction-strip" id="directionStrip"></div>
+              <h4 class="result-section">تخصصات أخرى مناسبة لك</h4>
+              <div class="other-specs" id="otherSpecs"></div>
+              <h4 class="result-section">نقاط قوتك</h4>
+              <p class="scores-help">مؤشراتك على الأبعاد السبعة: النسبة تعني كم مرة اخترت هذا المجال عندما ظهر لك بين الخيارات. هي مؤشر تقريبي وليست حكماً نهائياً.</p>
+              <div class="dimensions-bars" id="dimensionsBars"></div>
+              <div class="study-tip" id="studyTipBox">
+                <div class="study-tip-title"><span data-icon="lightbulb" data-icon-size="16"></span> نصيحة للدراسة</div>
+                <p id="studyTipText">—</p>
+              </div>
+              <div class="kind-note" id="kindNote">
+                <b>الكلية والمعهد:</b> الكلية برنامج جامعي أطول وأكثر عمقاً نظرياً غالباً، بينما المعهد يركّز على الجانب التطبيقي وتكون مدته أقصر في كثير من الحالات. اختر حسب أسلوب تعلّمك وهدفك المهني.
+              </div>
+              <div class="edu-note" id="eduNote">
+                <div class="edu-note-title">أنواع التعليم</div>
+                <div class="edu-grid">
+                  <div class="edu-item"><b>عام</b><span>رسوم أقل، ومقاعد محدودة حسب المفاضلة.</span></div>
+                  <div class="edu-item"><b>موازي</b><span>رسوم أعلى، وفرص قبول أوسع غالباً.</span></div>
+                  <div class="edu-item"><b>مفتوح</b><span>تعليم مرن بفرص قبول أوسع، وغالباً بنظام عن بُعد أو جزئي.</span></div>
+                  <div class="edu-item"><b>افتراضي</b><span>دراسة عن بُعد بالكامل عبر المنصات الإلكترونية.</span></div>
+                  <div class="edu-item"><b>خاص</b><span>جامعات خاصة برسومها وشروط قبولها المستقلة.</span></div>
+                </div>
+              </div>
+              <div class="result-note">
+                هذه النتيجة استرشادية لمساعدتك على اكتشاف اهتماماتك، وليست حكماً نهائياً بشأن التخصص المناسب لك. وقد تختلف ملاءمة التخصص حسب شروط القبول ونوع التعليم (عام، موازي، مفتوح، افتراضي، خاص) والخطة الدراسية في كل عام.
+              </div>
+              <div class="result-actions">
+                <button class="btn primary" id="restartBtn" type="button"><span data-icon="rotateCcw" data-icon-size="18"></span><span>ابدأ من جديد</span></button>
+                <button class="btn notes-btn" id="notesBtn" type="button"><span data-icon="messageSquareText" data-icon-size="18"></span><span>ملاحظات</span></button>
+                <button class="btn" id="shareBtn" type="button"><span data-icon="share2" data-icon-size="18"></span><span>مشاركة صورة</span></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- أزرار التنقل -->
+
+          <div class="actions" id="navActions">
+
+            <button class="btn primary" id="nextBtn" type="button">التالي</button>
+
+            <button class="btn ghost" id="skipBtn" type="button" title="تخطي هذا السؤال">تخطي</button>
+
+            <button class="btn" id="backBtn" type="button" disabled>السابق <span data-icon="arrowLeft" data-icon-size="18"></span></button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="journey" id="journey" aria-label="مراحل الرحلة">
+        <div class="journey-step"><span class="journey-ico"><span data-icon="calendar" data-icon-size="20"></span></span>اكتشف نفسك</div>
+        <div class="journey-step"><span class="journey-ico"><span data-icon="target" data-icon-size="20"></span></span>اكتشف تخصصك</div>
+        <div class="journey-step"><span class="journey-ico"><span data-icon="scale" data-icon-size="20"></span></span>قارن الخيارات</div>
+        <div class="journey-step"><span class="journey-ico"><span data-icon="user" data-icon-size="20"></span></span>خطط لمستقبلك</div>
+      </div>
+
+      <!-- ============================================================
+
+           عن مساري
+
+           ============================================================ -->
+
+      <section class="about-card" id="about" aria-label="عن اختبار مساري">
+
+        <h3>ما هو اختبار مساري؟</h3>
+
+        <p>18 موقفاً من الحياة اليومية، تتحول اختياراتك فيها إلى مؤشرات عن اهتماماتك، ثم نقترح عليك تخصصات جامعية قريبة منها مع شرح مبسط لكل تخصص.</p>
+
+      </section>
+
+
+
+      <section class="union-about" aria-label="عن الاتحاد">
+
+        <div>
+
+          <h3>عن الاتحاد</h3>
+
+          <p>اتحاد طلابي يُعنى بالشأن الطلابي، ويمثّل الطلبة، ويسهم في دعم الأنشطة والفعاليات العلمية والثقافية والاجتماعية، ومتابعة القضايا والاهتمامات المرتبطة بالحياة الجامعية.</p>
+
+        </div>
+
+      </section>
+
+    </div>
+
+
+
+    <!-- ============================================================
+
+         الفوتر
+
+         ============================================================ -->
+
+    <footer class="site-footer" id="footer">
+
+      <div class="footer-block footer-counter">
+
+        <div class="counter" aria-label="عدد الزيارات"><b id="visitCount">—</b></div>
+
+      </div>
+
+      <div class="footer-block footer-social">
+
+        <div class="social-links" aria-label="روابط الاتحاد على مواقع التواصل">
+
+          <a class="social-link" href="https://www.instagram.com/studentaleppo" target="_blank" rel="noopener noreferrer" aria-label="إنستغرام اتحاد طلبة سوريا">
+
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.7" r="1.1" fill="currentColor"/></svg>
+
+          </a>
+
+          <a class="social-link" href="https://www.facebook.com/share/1Bwm9gAzdP/" target="_blank" rel="noopener noreferrer" aria-label="فيسبوك اتحاد طلبة سوريا">
+
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.4 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.5 1.6-1.5h1.7V4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9V10H8v3h2.6v8h2.8Z"/></svg>
+
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="ai-credit" aria-label="معلومة عن تطوير المنصة">مطور هذه المنصة محمد فرح</div>
+
+      <div class="copyright">© مساري</div>
+
+    </footer>
+
+  </div>
+
+
+
+  <!-- ============================================================
+
+       نافذة تفاصيل التخصص
+
+       ============================================================ -->
+
+  <div class="major-modal" id="majorModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="majorModalTitle">
+
+    <div class="major-modal-card">
+
+      <div class="major-modal-top">
+
+        <div>
+
+          <div class="major-modal-title" id="majorModalTitle">التخصص</div>
+
+          <div class="major-modal-sub" id="majorModalSub"></div>
+
+        </div>
+
+        <button class="major-close" id="majorModalClose" type="button" aria-label="إغلاق">×</button>
+
+      </div>
+
+      <div class="major-info"><h5><span data-icon="bookOpen" data-icon-size="16"></span> عن الاختصاص</h5><p id="majorModalSummary"></p></div>
+
+      <div class="major-info"><h5><span data-icon="target" data-icon-size="16"></span> ما تدرسه فيه</h5><div id="majorModalStudy"></div></div>
+
+      <div class="major-info"><h5><span data-icon="clock" data-icon-size="16"></span> مدة الدراسة</h5><div class="major-duration" id="majorModalDuration"></div></div>
+
+      <div class="major-info"><h5><span data-icon="landmark" data-icon-size="16"></span> الجامعات</h5><div class="major-jobs" id="majorModalUniversities"></div></div>
+
+      <div class="major-info"><h5><span data-icon="briefcase" data-icon-size="16"></span> مجالات العمل بعد التخرج</h5><div class="major-jobs" id="majorModalJobs"></div></div>
+
+      <div class="major-info"><h5><span data-icon="lightbulb" data-icon-size="16"></span> نصيحة</h5><p id="majorModalAdvice"></p></div>
+
+      <div class="major-modal-note">المعلومات للتعريف بالاختصاص بشكل مبسّط، وقد تختلف الخطة الدراسية وبعض فرص العمل بحسب البرنامج والجامعة.</div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- ============================================================
+
+       نافذة الملاحظات
+
+       ============================================================ -->
+
+  <div class="note-modal" id="noteModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="noteModalTitle">
+
+    <div class="note-modal-card">
+
+      <div class="note-modal-top">
+
+        <div class="note-modal-title" id="noteModalTitle">شاركنا ملاحظتك</div>
+
+        <button class="note-close" id="noteModalClose" type="button" aria-label="إغلاق">×</button>
+
+      </div>
+
+      <p class="note-modal-hint">اكتب رأيك أو اقتراحك لتحسين مساري — ملاحظاتك تساعدنا نطوّر المنصة.</p>
+
+      <textarea id="noteText" class="note-textarea" rows="6" placeholder="اكتب ملاحظتك هنا..." maxlength="2000"></textarea>
+
+      <div class="note-modal-actions">
+
+        <button class="btn" id="noteCancelBtn" type="button">إلغاء</button>
+
+        <button class="btn primary" id="noteSubmitBtn" type="button">إرسال</button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- ============================================================
+
+       حاوية التنبيهات
+
+       ============================================================ -->
+
+  <div class="toast-wrap" id="toastWrap" aria-live="polite"></div>
+
+
+
+  <!-- ============================================================
+
+       السكربتات
+
+       ============================================================ -->
+
+  <script type="module" src="app.js?v=20261007-v12"></script>
+
+</body>
+
+</html>
