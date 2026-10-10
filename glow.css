@@ -1,0 +1,114 @@
+/* glow.css — أيقونات متوهجة، بطاقات زجاجية، أشرطة بتدريج، ترتيب الأزرار، وتخفيف الأداء (يُحمَّل بعد style.css) */
+
+/* ===== أيقونات بتدرّج وتوهّج ===== */
+.dim-bar-icon svg,.spec-ico svg,.q-icon svg,.journey-ico svg,.dir-chip-icon svg,.branch-icon svg,.mm-ico svg,.intro-stat i svg,.major-info h5 svg,.study-tip-title svg{stroke:url(#icg);stroke-width:1.8;filter:drop-shadow(0 0 4px rgba(79,140,255,.55))}
+.dim-bar-icon,.spec-ico,.journey-ico,.q-icon{background:linear-gradient(145deg,rgba(125,243,255,.16),rgba(90,80,255,.14));border:1px solid rgba(150,165,255,.35);box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 4px 14px rgba(64,88,255,.18)}
+.dim-bar-icon{width:38px;height:38px;border-radius:12px}
+.spec-ico{width:36px;height:36px;border-radius:11px;display:grid;place-items:center}
+
+/* ===== بطاقات التخصصات (زجاجية + مخطط خطي) ===== */
+.spec-card{background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.02)),var(--soft);border-color:rgba(150,165,255,.3);min-height:128px}
+.spec-pct{font-size:22px;background:linear-gradient(90deg,#7df3ff,#4f8cff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.spec-card .spark{display:block;margin-top:auto}
+.spec-card .sp{display:block;width:100%;height:30px;filter:drop-shadow(0 0 4px rgba(79,140,255,.5))}
+
+/* ===== أرقام أشرطة الأبعاد (الشكل الأصلي للشريط، لون جديد للأرقام) ===== */
+.dim-bar-value{color:#0a9fd0;font-variant-numeric:tabular-nums}
+html.dark .dim-bar-value{color:#5ee6ff}
+
+/* ===== أزرار صفحة النتيجة: ابدأ من جديد (كاملة) ثم ملاحظات | مشاركة ===== */
+.result-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.result-actions .btn{flex:none;width:100%;margin:0}
+.result-actions #restartBtn{grid-column:1/-1;min-height:58px;font-size:16px}
+.result-actions #notesBtn,.result-actions #shareBtn{min-height:50px;font-size:14px}
+@media (max-width:380px){.result-actions{grid-template-columns:1fr}}
+
+/* ===== تخفيف الأداء ===== */
+body:before{animation:none}                       /* خلفية متحركة بحجم الشاشة كاملة */
+.best-card{animation:rise .6s both}               /* كان يحرّك box-shadow بلا توقف */
+.btn.featured,html.dark .btn.featured{animation:none}
+@media (max-width:700px),(hover:none){
+  body:before{display:none}
+  .btn.primary:after,.bar:after{display:none}
+  .ai-fab-body,.ai-fab-ring{animation:none}
+  .nav{backdrop-filter:none;background:var(--paper)}
+  html.dark .nav{background:#0a0d34}
+  .major-modal,.note-modal,.skip-reason-overlay{backdrop-filter:none}
+  html.dark #navActions{backdrop-filter:none}
+}
+
+/* ===== الشريط العلوي: الشعارات وزر الوضع فقط ===== */
+.nav{grid-template-columns:auto 1fr}
+.nav-right{justify-self:end}
+
+/* ===== رسمة الهيرو: طريق متدرّج داخل التلّة ===== */
+.il-road2{fill:url(#gRoad)}
+.il-road2-dash{fill:none;stroke:#fff;stroke-opacity:.7;stroke-width:2;stroke-dasharray:4 8;stroke-linecap:round}
+
+/* ===== v1.1: شاشة «نجهّز نتيجتك» تتبع الوضع (نهاري/ليلي) =====
+   style.css يعرّفها بالألوان الليلية دائماً (وهي تبقى كما هي في الوضع الليلي)،
+   وهنا نعطيها نسخة نهارية عندما لا يكون html.dark */
+html:not(.dark) .calc-overlay{background:radial-gradient(circle at 50% 20%,#e4eaff,#f5f8ff 70%)}
+html:not(.dark) .calc-card{background:var(--paper);color:var(--text);border:1px solid var(--line);box-shadow:0 24px 70px rgba(37,45,130,.16)}
+html:not(.dark) .calc-label{color:var(--muted)}
+html:not(.dark) .calc-title{color:var(--text)}
+html:not(.dark) .calc-progress-bg{stroke:var(--line)}
+html:not(.dark) .calc-progress-bar{stroke:var(--blue);filter:drop-shadow(0 0 8px rgba(47,107,255,.35))}
+html:not(.dark) .calc-progress-text{color:var(--text)}
+html:not(.dark) .calc-item{color:var(--muted)}
+html:not(.dark) .calc-item.done{color:var(--text)}
+html:not(.dark) .calc-check{border-color:var(--line)}
+html:not(.dark) .calc-item.done .calc-check{background:var(--accent);border-color:var(--accent);color:#fff}
+html:not(.dark) .calc-footnote{border-top-color:var(--line);color:var(--muted)}
+
+/* ===== v1.1: أزرار Hover Glow، أنميشن العمر، نقاط الكتابة، حركات النتيجة ===== */
+/*
+   1) أزرار Hover Glow  2) أنميشن العمر  3) نقاط الكتابة في الشات  4) حركات النتيجة */
+
+/* ===== 1) الأزرار الملونة بتصميم Hover Glow ===== */
+.btn.primary,.nav-cta,.btn.featured,
+html.dark .btn.primary,html.dark .nav-cta,html.dark .btn.featured{
+  background:linear-gradient(135deg,#00c6ff,#7f00ff);
+  background-size:100% 100%;background-position:0 0;
+  border:none;border-radius:50px;color:#fff;
+  box-shadow:0 6px 18px rgba(127,0,255,.30),inset 0 1px 0 rgba(255,255,255,.28);
+  animation:none;
+  transition:box-shadow .4s,transform .4s,filter .4s;
+}
+.btn.primary:hover:not(:disabled),.nav-cta:hover,.btn.featured:hover:not(:disabled),
+html.dark .btn.primary:hover:not(:disabled),html.dark .nav-cta:hover,html.dark .btn.featured:hover:not(:disabled){
+  background:linear-gradient(135deg,#00c6ff,#7f00ff);background-position:0 0;
+  border:none;
+  box-shadow:0 0 20px rgba(127,0,255,.8);
+  transform:translateY(-2px);
+}
+.btn.primary:active:not(:disabled){transform:translateY(0) scale(.98);box-shadow:0 0 12px rgba(127,0,255,.6)}
+.btn.primary:after{display:none}
+/* زر الإرسال في الشات بنفس اللون */
+.ai-send{background:linear-gradient(135deg,#00c6ff,#7f00ff);box-shadow:0 6px 18px rgba(127,0,255,.35);transition:box-shadow .4s,transform .4s}
+.ai-send:hover:not(:disabled){box-shadow:0 0 20px rgba(127,0,255,.8);transform:translateY(-2px)}
+
+/* ===== 2) أنميشن تغيّر رقم العمر ===== */
+.age-stepper input.age-up{animation:ageUp .32s cubic-bezier(.3,.8,.3,1)}
+.age-stepper input.age-down{animation:ageDown .32s cubic-bezier(.3,.8,.3,1)}
+@keyframes ageUp{from{opacity:.2;transform:translateY(14px) scale(.85)}to{opacity:1;transform:none}}
+@keyframes ageDown{from{opacity:.2;transform:translateY(-14px) scale(.85)}to{opacity:1;transform:none}}
+
+/* ===== 3) نقاط الكتابة في مساري AI (خمس نقاط تقفز) ===== */
+.ai-msg.typing{padding:12px 16px}
+.ai-typing{display:inline-flex;gap:7px;align-items:flex-end;height:30px;padding-top:12px}
+.ai-typing i{width:10px;height:10px;border-radius:50%;background:#ff3d81;opacity:1;animation:aiBounce .7s infinite alternate}
+.ai-typing i:nth-child(1){animation-delay:0s}
+.ai-typing i:nth-child(2){animation-delay:.1s}
+.ai-typing i:nth-child(3){animation-delay:.2s}
+.ai-typing i:nth-child(4){animation-delay:.3s}
+.ai-typing i:nth-child(5){animation-delay:.4s}
+@keyframes aiBounce{from{transform:translateY(0)}to{transform:translateY(-14px)}}
+
+/* ===== 4) حركات شاشة النتيجة عند الصعود والنزول ===== */
+.result-anim{opacity:0;transform:translateY(28px) scale(.98);transition:opacity .6s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.result-anim.out-up{transform:translateY(-22px) scale(.98)}
+.result-anim.in{opacity:1;transform:none}
+.best-icon{animation:bestFloat 4s ease-in-out infinite}
+@keyframes bestFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@media (prefers-reduced-motion:reduce){.result-anim{opacity:1;transform:none}.best-icon{animation:none}}
